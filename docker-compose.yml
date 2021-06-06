@@ -4,7 +4,7 @@ services:
   frontend:
     build: frontend
     ports:
-      - 8505:8505
+      - 8501:8505
     depends_on:
       - backend
     volumes:
