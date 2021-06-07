@@ -36,7 +36,9 @@ if st.button("Style Transfer"):
         try:
             img_path = res.json()
             image = Image.open(img_path.get("name"))
+            st.image(image, width=500)
         except ValueError:
             st.write("The request code is: " + str(res.status_code))
+            st.write("The request content is: " + str(res.text))
         #image = Image.open(img_path.get("name"))
-        st.image(image, width=500)
+        #st.image(image, width=500)
