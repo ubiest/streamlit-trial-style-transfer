@@ -23,8 +23,8 @@ def read_root():
 
 
 @app.post("/{style}")
-def get_image(style: str, file: UploadFile = File(...)):
-    image = np.array(Image.open(file.file))
+async def get_image(style: str, file: UploadFile = File(...)):
+    image = await np.array(Image.open(file.file))
     model = config.STYLES[style]
     output, resized = inference.inference(model, image)
     name = f"/storage/{str(uuid.uuid4())}.jpg"
